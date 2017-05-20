@@ -1,52 +1,47 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 
+vector<ll> arr;
+multiset<ll> mset;
+ll val;
 
-
-
-int arr[10001];
-
-
+void print()
+{  multiset<long long>:: iterator it;
+    cout<<"printing arr"<<endl;
+    for(it=mset.begin();it!=mset.end();it++ )
+    cout<<*it<<" ";
+    cout<<endl;
+}
 
 void solve(void)
 {
 
-   memset(arr,0,sizeof(arr));
-
-   int t;
-   cin >>t ;
-   while(t--){
-   int n;int p;
-   cin>>n>>p;
-
+   arr.clear();
+   mset.clear();
+   int n,q;
+   cin>>n>>q;
    for(int i=0;i<n;i++ )
-    cin>>arr[i];
-
-   int countMax=0;
-   int maxSum=0;
-
-   int left,right ;
-
-   for(left=0;left<n;left++)
-   {
-       for(right=left;right<n;right++)
-       {
-           int sum=0;
-
-           for(int i=left;i<=right;i++ )
-              sum=(sum+arr[i])%p;
-
-           if(sum>maxSum)
-              maxSum=sum,countMax=0;
-
-            if(sum==maxSum)
-                countMax+=1;
-
-       }
+     {
+cin>>val;
+mset.insert(val);
    }
 
-   cout<<maxSum<<" "<<countMax<<endl;
-   }
+
+   print();
+
+multiset<long long>:: iterator it1,it2;
+it2=mset.begin();
+
+while(q-- ){
+cout<<"gfreg"<<endl;
+cin>>val;
+it1 = mset.upper_bound(val);
+cout<<*it1;
+
+cout<<distance(it1,it2);
+}
+
 
 
 }
@@ -54,6 +49,9 @@ void solve(void)
 
 int main()
 {
-   solve()  ;
+   int t;
+   cin>>t;
+   while(t--){
+   solve()  ;}
    return 0;
 }
